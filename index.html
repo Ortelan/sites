@@ -60,6 +60,14 @@
       color: #ff1493;
     }
 
+    #textoFofo {
+      font-size: 20px;
+      font-weight: normal;
+      margin-top: 20px;
+      color: #cc0066;
+      line-height: 1.6;
+    }
+
     /* Corações caindo */
     .heart {
       position: fixed;
@@ -95,11 +103,14 @@
     <img src="imagens/foto3.jpeg" alt="Foto 3">
   </div>
 
-  <div id="mensagem">ISABELLY LOPES AMORIM, EU TE AMO ❤️</div>
-  Desde o dia em que te conheci, meu coração sorri diferente. <br>
-  Você é o motivo dos meus melhores dias, das minhas risadas mais sinceras <br>
-  e dos meus sonhos mais bonitos. <br>
-  Obrigado por existir, por ser tão incrível, e por me deixar te amar. 💖
+  <div id="mensagem">
+    ISABELLY LOPES AMORIM, EU TE AMO ❤️
+    <div id="textoFofo">
+      Desde o dia em que te conheci, meu coração sorri diferente. <br>
+      Você é o motivo dos meus melhores dias, das minhas risadas mais sinceras <br>
+      e dos meus sonhos mais bonitos. <br>
+      Obrigado por existir, por ser tão incrível, e por me deixar te amar. 💖
+    </div>
   </div>
 
   <script>
@@ -111,6 +122,7 @@
     btnSim.onclick = () => {
       divFotos.style.display = "block";
       mensagem.style.display = "block";
+      iniciarCoracoes();
     };
 
     btnNao.onclick = () => {
@@ -118,19 +130,21 @@
     };
 
     // Criar corações caindo
-    function criarCoracoes() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      document.body.appendChild(heart);
+    function iniciarCoracoes() {
+      function criarCoracoes() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      setInterval(criarCoracoes, 300);
     }
-
-    setInterval(criarCoracoes, 300);
   </script>
 </body>
 </html>
