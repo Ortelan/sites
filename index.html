@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Para Isabely 💘</title>
+  <link rel="shortcut icon" type="imagex/png" href="amar.png">
   <style>
     body {
       margin: 0;
@@ -11,7 +12,6 @@
       padding: 50px;
       background: linear-gradient(to bottom right, #ffe6f0, #ffb6c1);
       overflow-x: hidden;
-      overflow-y: auto;
     }
 
     h1 {
@@ -27,8 +27,6 @@
       border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
-      z-index: 10;
-      position: relative;
     }
 
     #sim {
@@ -60,8 +58,6 @@
       font-size: 28px;
       font-weight: bold;
       color: #ff1493;
-      z-index: 10;
-      position: relative;
     }
 
     /* Corações caindo */
@@ -73,7 +69,7 @@
       background-size: contain;
       pointer-events: none;
       animation: fall 6s linear infinite;
-      z-index: 1;
+      z-index: 0;
     }
 
     @keyframes fall {
@@ -94,9 +90,9 @@
   <button id="nao">Não 😢</button>
 
   <div id="fotos">
-    <img src="foto1.jpg" alt="Foto 1">
-    <img src="foto2.jpg" alt="Foto 2">
-    <img src="foto3.jpg" alt="Foto 3">
+    <img src="foto1.jpeg" alt="Foto 1">
+    <img src="foto2.jpeg" alt="Foto 2">
+    <img src="foto3.jpeg" alt="Foto 3">
   </div>
 
   <div id="mensagem">ISABELLY LOPES AMORIM, EU TE AMO ❤️</div>
@@ -107,37 +103,29 @@
     const divFotos = document.getElementById("fotos");
     const mensagem = document.getElementById("mensagem");
 
-    let coracoesAtivados = false;
-
     btnSim.onclick = () => {
       divFotos.style.display = "block";
       mensagem.style.display = "block";
-
-      if (!coracoesAtivados) {
-        iniciarCoracoes();
-        coracoesAtivados = true;
-      }
     };
 
     btnNao.onclick = () => {
       btnNao.style.display = "none";
     };
 
-    function iniciarCoracoes() {
-      function criarCoracoes() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        document.body.appendChild(heart);
+    // Criar corações caindo
+    function criarCoracoes() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 6000);
-      }
-
-      setInterval(criarCoracoes, 300);
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
     }
+
+    setInterval(criarCoracoes, 300);
   </script>
 </body>
 </html>
